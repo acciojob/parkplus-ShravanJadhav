@@ -12,7 +12,8 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
 
-    @OneToOne(mappedBy = "payment", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn
     Reservation reservation;
 
     public Payment() {
@@ -35,6 +36,7 @@ public class Payment {
         this.paymentCompleted = paymentCompleted;
         this.paymentMode = paymentMode;
     }
+
 
     public int getId() {
         return id;
